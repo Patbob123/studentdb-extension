@@ -6,6 +6,8 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  let tabsEntered = sessionStorage.getItem('tabsEntered')
+
   return (
     <>
       <div>
@@ -22,7 +24,7 @@ function App() {
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          Tabs Entered {tabsEntered}
         </p>
       </div>
       <p className="read-the-docs">
