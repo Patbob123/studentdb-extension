@@ -10,7 +10,7 @@
       "type": "module"
     },
     "permissions": [
-      "webNavigation","tabs","activeTab","storage"
+      "webNavigation","tabs","activeTab","storage","notifications"
     ],
     "host_permissions": [
       "http://*/*",

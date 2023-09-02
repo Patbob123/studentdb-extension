@@ -1,18 +1,21 @@
 import * as time from './time.js'
 
-const incrementTime = async (hostname) => {
-    let obj = await getStorage(hostname)
-    let curTime = time.getTime();
+const incrementTime = async (hostname, increment) => {
+    let obj = await getStorage()
+    console.log(obj)
+    // let curTime = time.getTime();
 
-    console.log(obj,curTime)
+    // console.log(obj,curTime)
     if (Object.keys(obj).length === 0) {
-        console.log("Doesnt Exist: set to ", curTime)
+        console.log("Doesnt Exist: set to ", 0)
         chrome.storage.local.set({
-            [hostname]: { start: curTime, current: curTime }
+            // [hostname]: { start: curTime, current: curTime }
+            [hostname]: 0
         })
     } else {
         chrome.storage.local.set({
-            [hostname]: { start: obj[hostname].start, current: curTime }
+            // [hostname]: { start: obj[hostname].start, current: curTime }
+            [hostname]: obj[hostname]+increment
         })
     }
 }
@@ -21,8 +24,12 @@ const removeStorage = async (hostname) => {
     await chrome.storage.local.remove(hostname)
 }
 
-const getStorage = async (hostname) => {
-    return chrome.storage.local.get(hostname)
+const getStorage = async () => {
+    return chrome.storage.local.get()
 }
 
-export { incrementTime, removeStorage, getStorage }
+const clearStorage = async () => {
+    return chrome.storage.local.clear();
+}
+
+export { incrementTime, removeStorage, getStorage, clearStorage }
