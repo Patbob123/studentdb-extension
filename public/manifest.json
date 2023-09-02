@@ -1,19 +1,35 @@
 {
-    "manifest_version": 3,
-    "name": "Student-Dashboard",
-    "version": "1.0.0",
-    "action": {
-        "default_popup": "index.html"
-    },
-    "background": {
-      "service_worker": "background.js",
-      "type": "module"
-    },
-    "permissions": [
-      "webNavigation","tabs","activeTab","storage","notifications"
-    ],
-    "host_permissions": [
-      "http://*/*",
-      "https://*/*"
-    ]
+  "manifest_version": 3,
+  "name": "Student-Dashboard",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "declarativeNetRequest",
+    "webNavigation",
+    "tabs",
+    "activeTab",
+    "storage",
+    "notifications"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "index.html"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ]
+    }
+  ]
 }
