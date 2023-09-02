@@ -1,3 +1,5 @@
+import {incrementTime} from './modules/storage.js';
+
 chrome.tabs.onActivated.addListener(
     function (activeInfo) {
         chrome.tabs.get(activeInfo.tabId, function (tab) {
@@ -12,6 +14,16 @@ const filter = {
     ],
 };
 
-chrome.webNavigation.onCompleted.addListener(() => {
-    console.info("The user has loaded my favorite website!");
+chrome.webNavigation.onCompleted.addListener(async () => {
+    let curTab = await getCurrentTab();
+    let curTabURL = new URL(curTab.url)
+
+    await incrementTime(curTabURL.hostname);
 }, filter);
+
+async function getCurrentTab() {
+    let queryOptions = { active: true, currentWindow: true };
+    let [tab] = await chrome.tabs.query(queryOptions);
+    return tab;
+}
+  
