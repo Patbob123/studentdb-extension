@@ -17,7 +17,7 @@ function App() {
     return (
         <div style={{height:'20rem',width:'20rem'}}>
         <div>
-            {visitCount?.start} {visitCount?.current} {time.compareTime(visitCount.current - visitCount.start)}
+            {visitCount?.start} {visitCount?.current} {time.compareTime(visitCount.current, visitCount.start)}
         </div>
             <div onClick={async () => await removeStorage("www.youtube.com")} style={{ backgroundColor: 'red', textAlign: 'center' }}>
                 RESET

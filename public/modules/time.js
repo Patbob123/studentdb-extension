@@ -4,7 +4,7 @@ const getTime = () => {
 
 //Returns in minutes
 const compareTime = (newer, older) => {
-    return (newer - older)
+    return (newer - older) / 60
 }
 
 export { getTime, compareTime };

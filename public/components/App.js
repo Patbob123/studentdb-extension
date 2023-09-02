@@ -16,7 +16,7 @@ function App() {
       height: '20rem',
       width: '20rem'
     }
-  }, /*#__PURE__*/React.createElement("div", null, visitCount?.start, " ", visitCount?.current, " ", time.compareTime(visitCount.current - visitCount.start)), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", null, visitCount?.start, " ", visitCount?.current, " ", time.compareTime(visitCount.current, visitCount.start)), /*#__PURE__*/React.createElement("div", {
     onClick: async () => await removeStorage("www.youtube.com"),
     style: {
       backgroundColor: 'red',
