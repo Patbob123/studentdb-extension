@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "buildreact": "npx babel ./src/components --out-dir ./public/components --watch"
+    "buildreact": "npx babel ./src/components --out-dir ./public/components --watch",
+    "buildcss": "npx tailwindcss -i ./src/input.css -o ./public/style.css --watch"
   },
   "keywords": [],
   "author": "",
