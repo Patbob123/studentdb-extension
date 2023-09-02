@@ -1,27 +1,24 @@
-import { incrementTime, getStorage, startCooldown, newStorage, getCurrentTab } from './modules/storage.js';
+import { incrementTime, getStorage, setStorage, startCooldown, newStorage, getCurrentTab, clearStorage } from './modules/storage.js';
 import * as time from './modules/time.js'
 
-chrome.tabs.onActivated.addListener(
-    function (activeInfo) {
-        chrome.tabs.get(activeInfo.tabId, function (tab) {
-            // console.log(activeInfo.tabId)
-        });
+const defaultSettings = {
+    // maxTime: 3600,
+    maxTime: 10,
+    trackedHosts: ['www.amazon.com', 'www.youtube.com', 'www.netflix.com']
+}
+
+chrome.runtime.onInstalled.addListener(e => {
+    console.log('Starting')
+    let start = async () => {
+        await clearStorage()
+        await setStorage('settings', defaultSettings)
+        await repeatTimer(0);
     }
-);
-const filter = {
-    url: [
-        // { urlMatches: 'https://www.google.com/' },
-        { urlMatches: 'https://www.youtube.com/' }
-    ],
-};
-
-// chrome.webNavigation.onCompleted.addListener(async () => {
-// }, filter);
-
-const trackedHosts = ['www.amazon.com', 'www.youtube.com', 'www.netflix.com'];
+    start();
+})
 
 chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [0,1,2,3,4,5,6]
+    removeRuleIds: [0, 1, 2, 3, 4, 5, 6]
 });
 
 let repeatTimer = async (prevTime) => {
@@ -45,10 +42,10 @@ let repeatTimer = async (prevTime) => {
             if (curTabURL == host || obj[host].timeSpent < 0) {
                 await incrementTime(curTabURL, newTime - prevTime)
 
-                let maxTime = 10
+                let maxTime = obj.settings.maxTime
                 console.log(newTime - prevTime, obj[curTabURL])
 
-                if (obj[curTabURL].timeSpent >= 10) {
+                if (obj[curTabURL].timeSpent >= maxTime) {
                     await chrome.declarativeNetRequest.updateDynamicRules({
                         addRules: [{
                             id: obj[curTabURL].id,
@@ -74,7 +71,7 @@ let repeatTimer = async (prevTime) => {
 
         }
 
-        if(trackedHosts.includes(curTabURL) && !obj[curTabURL]) {
+        if (obj.settings.trackedHosts.includes(curTabURL) && !obj[curTabURL]) {
             newStorage(curTabURL)
         }
 
@@ -83,11 +80,3 @@ let repeatTimer = async (prevTime) => {
     await new Promise(resolve => setTimeout(resolve, 1000));
     repeatTimer(newTime)
 }
-
-chrome.runtime.onInstalled.addListener(e => {
-    console.log('EHERRERE')
-    repeatTimer(0);
-
-})
-
-// MAKE CONFIG JSON (does this work on client side??) OR USE LOCAL STORAGE

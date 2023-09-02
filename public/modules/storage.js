@@ -28,6 +28,18 @@ const setStorage = async (hostname, val) => {
     })
 }
 
+const setSettings = async (settings) => {
+    let obj = await getStorage()
+
+    if(settings.maxTime) {
+        await setStorage('settings', {maxTime: settings.maxTime, trackedHosts: obj.settings.trackedHosts})
+    }
+    if(settings.trackedHosts) {
+        await setStorage('settings', {trackedHosts: settings.trackedHosts, maxTime: obj.settings.maxTime})
+    }
+    
+}
+
 const newStorage = async (hostname) => {
     let obj = await getStorage()
     console.log("Doesnt Exist: set to ", 0)
@@ -58,4 +70,4 @@ const getCurrentTab = async () =>{
     return tab;
 }
 
-export { incrementTime, removeStorage, getStorage, setStorage, newStorage, startCooldown, clearStorage, getCurrentTab }
+export { incrementTime, removeStorage, getStorage, setStorage, newStorage, setSettings, startCooldown, clearStorage, getCurrentTab }
