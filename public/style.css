@@ -680,8 +680,8 @@ video {
   height: 18rem;
 }
 
-.h-auto {
-  height: auto;
+.h-8 {
+  height: 2rem;
 }
 
 .h-fit {
@@ -691,22 +691,6 @@ video {
 
 .h-full {
   height: 100%;
-}
-
-.h-5\/6 {
-  height: 83.333333%;
-}
-
-.h-10 {
-  height: 2.5rem;
-}
-
-.h-5 {
-  height: 1.25rem;
-}
-
-.h-8 {
-  height: 2rem;
 }
 
 .w-1\/4 {
@@ -727,6 +711,15 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.w-1\/10 {
+  width: 10%;
 }
 
 .flex-1 {
@@ -793,16 +786,6 @@ video {
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
-.space-y-5 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
-}
-
-.overflow-hidden {
-  overflow: hidden;
-}
-
 .overflow-y-auto {
   overflow-y: auto;
 }
@@ -813,6 +796,11 @@ video {
 
 .border {
   border-width: 1px;
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
 
 .bg-neutral-200 {
@@ -840,14 +828,9 @@ video {
   background-color: rgb(254 252 232 / var(--tw-bg-opacity));
 }
 
-.bg-red-100 {
+.bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
-}
-
-.bg-green-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-r {
@@ -892,12 +875,12 @@ video {
   padding-bottom: 1.25rem;
 }
 
-.pb-2 {
-  padding-bottom: 0.5rem;
-}
-
 .pb-10 {
   padding-bottom: 2.5rem;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 
 .text-center {
@@ -926,6 +909,11 @@ video {
 
 .text-xs\/none {
   font-size: 0.75rem;
+  line-height: 1;
+}
+
+.text-sm\/none {
+  font-size: 0.875rem;
   line-height: 1;
 }
 
@@ -961,6 +949,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .placeholder-black::-moz-placeholder {
@@ -1026,12 +1019,22 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color:rgb(82,82,82);
+  background-color: rgb(82, 82, 82);
   border-radius: 50rem;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(15,23,42);
+  background-color: rgb(15, 23, 42);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  background-color: rgb(15, 23, 42);
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .focus\:border-red-500:focus {
