@@ -27,10 +27,8 @@ let repeatTimer = async (prevTime) => {
     let newTime = time.getTime(); //Even though newTime is always changing, the difference between newTime and prevTime will always be 1 second +await times
 
     if (curTab) {
-        console.log('EHadsaERRERE')
         let curTabURL = new URL(curTab.url).hostname
         let obj = await getStorage()
-        console.log(obj)
 
         for (let host in obj) {
             if(!obj.settings.trackedHosts.includes(host)) continue;
@@ -45,7 +43,6 @@ let repeatTimer = async (prevTime) => {
                 await incrementTime(curTabURL, newTime - prevTime)
 
                 let maxTime = obj.settings.maxTime
-                console.log(newTime - prevTime, obj[curTabURL])
 
                 if (obj[curTabURL].timeSpent >= maxTime) {
                     await chrome.declarativeNetRequest.updateDynamicRules({
@@ -68,7 +65,6 @@ let repeatTimer = async (prevTime) => {
         }
 
     }
-    console.log('EHadsaERRERE')
     await new Promise(resolve => setTimeout(resolve, 1000));
     repeatTimer(newTime)
 }

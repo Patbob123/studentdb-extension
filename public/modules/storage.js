@@ -2,16 +2,11 @@ import * as time from './time.js'
 
 const incrementTime = async (hostname, increment) => {
     let obj = await getStorage()
-    console.log(obj)
-    let curTime = time.getTime();
 
-    if (Object.keys(obj).length === 0) {
-    } else {
-        chrome.storage.local.set({
-            // [hostname]: { start: obj[hostname].start, current: curTime }
-            [hostname]: { id: obj[hostname].id, timeSpent: obj[hostname].timeSpent + increment }
-        })
-    }
+    chrome.storage.local.set({
+        // [hostname]: { start: obj[hostname].start, current: curTime }
+        [hostname]: { id: obj[hostname].id, timeSpent: obj[hostname].timeSpent + increment }
+    })
 }
 
 const removeStorage = async (hostname) => {
@@ -42,7 +37,6 @@ const setSettings = async (settings) => {
 
 const newStorage = async (hostname) => {
     let obj = await getStorage()
-    console.log("Doesnt Exist: set to ", 0)
 
     let oldIds = []
     for (let host in obj) {
@@ -50,7 +44,6 @@ const newStorage = async (hostname) => {
     }
     oldIds.sort();
     let newId = oldIds[oldIds.length - 1] + 1
-    console.log(oldIds, newId)
     chrome.storage.local.set({
         [hostname]: { id: newId ? newId : 1, timeSpent: 0 }
     })

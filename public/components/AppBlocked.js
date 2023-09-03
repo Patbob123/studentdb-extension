@@ -5,40 +5,35 @@ function App() {
   let storage;
   React.useEffect(() => {
     let getData = async () => {
-      let curTab = await getCurrentTab();
-      if (curTab) {
-        let curTabHostname = new URL(curTab.url).hostname;
-        storage = await getStorage();
-        let hostNameArr = [];
-        for (let i in storage.settings.trackedHosts) {
-          let curHost = storage.settings.trackedHosts[i];
-          if (storage[curHost]) {
-            let cooldown = storage[curHost].timeSpent < 0;
-            let date = new Date(null);
-            date.setSeconds(Math.abs(storage[curHost].timeSpent));
-            let timeSpentDisplay = date.toISOString().substr(11, 8);
-            date = new Date(null);
-            date.setSeconds(storage.settings.maxTime);
-            let maxTimeDisplay = date.toISOString().substr(11, 8);
-            let barPercentDisplay = Math.abs(storage[curHost].timeSpent) / storage.settings.maxTime > 1 ? 1 : Math.abs(storage[curHost].timeSpent) / storage.settings.maxTime * 100 + "%";
-            hostNameArr.push({
-              hostname: curHost,
-              timeSpent: timeSpentDisplay,
-              maxTime: maxTimeDisplay,
-              barPercent: barPercentDisplay,
-              onCooldown: cooldown
-            });
-          }
+      storage = await getStorage();
+      let hostNameArr = [];
+      for (let i in storage.settings.trackedHosts) {
+        let curHost = storage.settings.trackedHosts[i];
+        if (storage[curHost]) {
+          let cooldown = storage[curHost].timeSpent < 0;
+          let date = new Date(null);
+          date.setSeconds(Math.abs(storage[curHost].timeSpent));
+          let timeSpentDisplay = date.toISOString().substr(11, 8);
+          date = new Date(null);
+          date.setSeconds(storage.settings.maxTime);
+          let maxTimeDisplay = date.toISOString().substr(11, 8);
+          let barPercentDisplay = Math.abs(storage[curHost].timeSpent) / storage.settings.maxTime > 1 ? 1 : Math.abs(storage[curHost].timeSpent) / storage.settings.maxTime * 100 + "%";
+          hostNameArr.push({
+            hostname: curHost,
+            timeSpent: timeSpentDisplay,
+            maxTime: maxTimeDisplay,
+            barPercent: barPercentDisplay,
+            onCooldown: cooldown
+          });
         }
-        console.log(hostNameArr);
-        setHostArr(hostNameArr);
       }
+      setHostArr(hostNameArr);
       await new Promise(resolve => setTimeout(resolve, 100));
       getData();
     };
     getData();
   }, []);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "w-full h-full bg-slate-900"
   }, /*#__PURE__*/React.createElement("div", {
     className: "flex w-full px-5 py-4 space-x-4 "
@@ -60,22 +55,20 @@ function App() {
     style: {
       color: "#ff6b65"
     }
-  }, "TANGLE")))), /*#__PURE__*/React.createElement("div", {
-    className: "bg-slate-900 p-10 space-y-2 text-white"
-  }, hostArr.map((host, i) => /*#__PURE__*/React.createElement("div", {
+  }, "TANGLE")))), hostArr.map((host, i) => /*#__PURE__*/React.createElement("div", {
     key: i,
-    className: "flex flex-col w-full h-64 px-5 space-y-1 justify-center"
+    className: "flex flex-col px-16 my-8"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "h-fit w-full bg-neutral-20 font-bold text-white text-5xl"
+    className: "h-16 bg-neutral-20 font-bold text-white text-5xl"
   }, host.hostname), /*#__PURE__*/React.createElement("div", {
-    className: "h-2 w-full rounded bg-neutral-200 dark:bg-neutral-600"
+    className: "rounded bg-neutral-200 dark:bg-neutral-600"
   }, /*#__PURE__*/React.createElement("div", {
     className: (host.onCooldown ? "bg-red-600" : "bg-green-500") + " h-2 rounded",
     style: {
       width: host.barPercent
     }
   })), /*#__PURE__*/React.createElement("div", {
-    className: "h-fit w-full bg-neutral-20 font-bold text-white text-3xl"
-  }, host.timeSpent, " / ", host.maxTime))))));
+    className: "bg-neutral-20 font-bold text-white text-3xl"
+  }, host.timeSpent, " / ", host.maxTime))));
 }
 ReactDOM.createRoot(document.querySelector('#root')).render( /*#__PURE__*/React.createElement(App, null));
