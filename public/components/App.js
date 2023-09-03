@@ -142,14 +142,14 @@ function App() {
     min: "0",
     max: "59",
     onChange: e => setMinute(e.target.value),
-    placeholder: "MINUTE",
+    placeholder: "MIN",
     className: "h-full w-1/4 rounded p-1 placeholder-black focus:outline-none focus:border-red-500  bg-slate-500"
   }), /*#__PURE__*/React.createElement("input", {
     type: "number",
     min: "0",
     max: "59",
     onChange: e => setSecond(e.target.value),
-    placeholder: "SECOND",
+    placeholder: "SEC",
     className: "h-full w-1/4 rounded p-1 placeholder-black focus:outline-none focus:border-red-500  bg-slate-500"
   })), /*#__PURE__*/React.createElement("div", {
     onClick: async () => await changeMaxTime(),

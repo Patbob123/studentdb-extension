@@ -138,8 +138,8 @@ function App() {
                             <div className="flex flex-col w-full h-1/3 px-5 space-y-2 justify-center">
                                 <div className="flex justify-between h-1/3 space-x-2 font-bold text-xs/none text-white">
                                     <input type="number" min="0" max="99" onChange={(e) => setHour(e.target.value)} placeholder="HOUR" className="h-full w-1/4 rounded p-1 placeholder-black focus:outline-none focus:border-red-500 bg-slate-500" />
-                                    <input type="number" min="0" max="59" onChange={(e) => setMinute(e.target.value)} placeholder="MINUTE" className="h-full w-1/4 rounded p-1 placeholder-black focus:outline-none focus:border-red-500  bg-slate-500" />
-                                    <input type="number" min="0" max="59" onChange={(e) => setSecond(e.target.value)} placeholder="SECOND" className="h-full w-1/4 rounded p-1 placeholder-black focus:outline-none focus:border-red-500  bg-slate-500" />
+                                    <input type="number" min="0" max="59" onChange={(e) => setMinute(e.target.value)} placeholder="MIN" className="h-full w-1/4 rounded p-1 placeholder-black focus:outline-none focus:border-red-500  bg-slate-500" />
+                                    <input type="number" min="0" max="59" onChange={(e) => setSecond(e.target.value)} placeholder="SEC" className="h-full w-1/4 rounded p-1 placeholder-black focus:outline-none focus:border-red-500  bg-slate-500" />
                                 </div>
                                 <div onClick={async () => await changeMaxTime()} className="h-1/4 rounded  bg-yellow-50">
                                     <div className="flex font-bold text-base justify-center items-center">
