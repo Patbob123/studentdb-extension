@@ -8,7 +8,7 @@ function App() {
     let [maxTime, setMaxTime] = React.useState(0)
     let [barPercent, setBarPercent] = React.useState(0)
 
-    let [isEnabled, setEnabled] = React.useState(true)
+    let [isEnabled, setEnabled] = React.useState(0)
     let [onMain, setOnMain] = React.useState(true)
 
     let [hour, setHour] = React.useState(0)
@@ -31,22 +31,23 @@ function App() {
 
                 let hostNameArr = [];
                 for (let i in storage.settings.trackedHosts) {
-                    console.log(i)
                     let curHost = storage.settings.trackedHosts[i]
                     if (storage[curHost]) {
+                        if(curHost == curTabHostname){
+                            setEnabled(true)
+                        }
+                        let cooldown = storage[curHost].timeSpent < 0
                         let date = new Date(null);
-                        date.setSeconds(storage[curHost].timeSpent);
+                        date.setSeconds(Math.abs(storage[curHost].timeSpent));
                         let timeSpentDisplay = date.toISOString().substr(11, 8)
 
                         date = new Date(null);
                         date.setSeconds(storage.settings.maxTime);
                         let maxTimeDisplay = date.toISOString().substr(11, 8)
 
-                        let barPercentDisplay = (Math.abs(storage[curHost].timeSpent) / storage.settings.maxTime) * 100 + "%"
-                        console.log(storage[curHost])
-                        console.log(curTime)
+                        let barPercentDisplay = (Math.abs(storage[curHost].timeSpent) / storage.settings.maxTime > 1) ? 1 : (Math.abs(storage[curHost].timeSpent) / storage.settings.maxTime) * 100 + "%"
 
-                        hostNameArr.push({ hostname: curHost, timeSpent: timeSpentDisplay, maxTime: maxTimeDisplay, barPercent: barPercentDisplay })
+                        hostNameArr.push({ hostname: curHost, timeSpent: timeSpentDisplay, maxTime: maxTimeDisplay, barPercent: barPercentDisplay, onCooldown: cooldown })
                     }
                 }
                 console.log(hostNameArr)
@@ -61,28 +62,47 @@ function App() {
                     date.setSeconds(storage.settings.maxTime);
                     setMaxTime(date.toISOString().substr(11, 8))
 
-                    setBarPercent((Math.abs(storage[curTabHostname].timeSpent) / storage.settings.maxTime) * 100 + "%")
-                    console.log(storage[curTabHostname])
-                    console.log(curTime)
+                    setBarPercent((Math.abs(storage[curTabHostname].timeSpent) / storage.settings.maxTime > 1) ? 1 : (Math.abs(storage[curTabHostname].timeSpent) / storage.settings.maxTime) * 100 + "%")
+                   
                 }
+                //console.log(hostNameArr)
             }
-            await new Promise(resolve => setTimeout(resolve, 1000));
+           
+            await new Promise(resolve => setTimeout(resolve, 100));
             getData()
         }
         getData();
     }, []);
 
-    function toggleEnable(isEnabled) {
+    async function toggleEnable(isEnabled) {
+        let hostNameArr = []
+        for(let i = 0 ; i < hostArr.length; i++){
+            hostNameArr[i] = hostArr[i].hostname
+        }
+        console.log(hostNameArr)
+        console.log(hostArr)
+        if (isEnabled) {
+            hostNameArr = hostNameArr.filter((e) => e != hostname)
+        }
+        if (!isEnabled) {
+            hostNameArr.push(hostname)
+            hostNameArr = hostNameArr.filter(function(item, pos, self) {
+                return self.indexOf(item) == pos;
+            })
+        }
         setEnabled(!isEnabled)
+        await setSettings({ trackedHosts: hostNameArr })
+
     }
 
     function toggleList(onMain) {
-        console.log(hostArr)
         setOnMain(!onMain)
     }
 
     async function changeMaxTime() {
-        let timeInSeconds = hour * 3600 + minute * 60 + second
+        console.log(hour + " " + minute + " " + second)
+        let timeInSeconds = ((hour * 3600) + (minute * 60) + (second * 1))
+        console.log(timeInSeconds)
         await setSettings({ maxTime: timeInSeconds })
     }
 
@@ -167,18 +187,18 @@ function App() {
                 </div>
             ) : (
                 <>
-                    <div className="w-80 h-90 bg-slate-900 py-5 pb-10 text-white">
+                    <div className="w-80 h-90 bg-slate-900 py-5 pb-10 space-y-2 text-white">
                         {
-                            hostArr.map((host, i) => 
+                            hostArr.map((host, i) =>
                                 <div key={i} className="flex flex-col w-full h-1/5 px-5 space-y-1 justify-center">
                                     <div className="h-fit w-full bg-neutral-20 font-bold text-xs/none text-white">
                                         {host.hostname}
                                     </div>
                                     <div className="h-2 w-full rounded bg-neutral-200 dark:bg-neutral-600">
-                                        <div className="h-2 rounded bg-red-600" style={{ width: host.barPercent }}></div>
+                                        <div className={(host.onCooldown ? "bg-red-600" : "bg-green-500") + " h-2 rounded"} style={{ width: host.barPercent }}></div>
                                     </div>
                                     <div className="h-fit w-full bg-neutral-20 font-bold text-xs/none text-white">
-                                        {host.timeSpent} / {host.maxTime}
+                                        {(host.timeSpent)} / {host.maxTime}
                                     </div>
                                 </div>
                             )
