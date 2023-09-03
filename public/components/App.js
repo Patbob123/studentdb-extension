@@ -55,9 +55,11 @@ function App() {
           console.log(curTime);
         }
       }
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      getData();
     };
     getData();
-  }, [curTime]);
+  }, []);
   function toggleEnable(isEnabled) {
     setEnabled(!isEnabled);
   }
@@ -159,24 +161,22 @@ function App() {
     onClick: () => toggleList(onMain),
     className: "w-1/10 font-extrabold text-black text-center rounded bg-white"
   }, ">")))) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-    className: "w-80 h-90 bg-slate-900 py-5 pb-10 whitespace-none overflow-y-auto"
-  }, JSON.stringify(hostArr), hostArr.map((host, i) => {
-    /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "ASDASDASD"), /*#__PURE__*/React.createElement("div", {
-      key: i,
-      className: "flex flex-col w-full h-1/5 px-5 space-y-1 justify-center"
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "h-fit w-full bg-neutral-20 font-bold text-xs/none text-white"
-    }, host.hostname), /*#__PURE__*/React.createElement("div", {
-      className: "h-2 w-full rounded bg-neutral-200 dark:bg-neutral-600"
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "h-2 rounded bg-red-600",
-      style: {
-        width: host.barPercent
-      }
-    })), /*#__PURE__*/React.createElement("div", {
-      className: "h-fit w-full bg-neutral-20 font-bold text-xs/none text-white"
-    }, host.timeSpent, " / ", host.maxTime)));
+    className: "w-80 h-90 bg-slate-900 py-5 pb-10 text-white"
+  }, hostArr.map((host, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    className: "flex flex-col w-full h-1/5 px-5 space-y-1 justify-center"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "h-fit w-full bg-neutral-20 font-bold text-xs/none text-white"
+  }, host.hostname), /*#__PURE__*/React.createElement("div", {
+    className: "h-2 w-full rounded bg-neutral-200 dark:bg-neutral-600"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "h-2 rounded bg-red-600",
+    style: {
+      width: host.barPercent
+    }
   })), /*#__PURE__*/React.createElement("div", {
+    className: "h-fit w-full bg-neutral-20 font-bold text-xs/none text-white"
+  }, host.timeSpent, " / ", host.maxTime)))), /*#__PURE__*/React.createElement("div", {
     className: "flex fixed w-full h-8 bottom-0 px-5 pb-2 bg-slate-900"
   }, /*#__PURE__*/React.createElement("div", {
     onClick: () => toggleList(onMain),

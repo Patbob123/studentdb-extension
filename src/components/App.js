@@ -66,9 +66,11 @@ function App() {
                     console.log(curTime)
                 }
             }
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            getData()
         }
         getData();
-    }, [curTime]);
+    }, []);
 
     function toggleEnable(isEnabled) {
         setEnabled(!isEnabled)
@@ -165,12 +167,9 @@ function App() {
                 </div>
             ) : (
                 <>
-                    <div className="w-80 h-90 bg-slate-900 py-5 pb-10 whitespace-none overflow-y-auto">
-                        {JSON.stringify(hostArr)}
+                    <div className="w-80 h-90 bg-slate-900 py-5 pb-10 text-white">
                         {
-                            hostArr.map((host, i) => {
-                                <>
-                                <div>ASDASDASD</div>
+                            hostArr.map((host, i) => 
                                 <div key={i} className="flex flex-col w-full h-1/5 px-5 space-y-1 justify-center">
                                     <div className="h-fit w-full bg-neutral-20 font-bold text-xs/none text-white">
                                         {host.hostname}
@@ -182,8 +181,7 @@ function App() {
                                         {host.timeSpent} / {host.maxTime}
                                     </div>
                                 </div>
-                                </>
-                            })
+                            )
                         }
 
 
