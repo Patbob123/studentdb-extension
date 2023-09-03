@@ -24,6 +24,9 @@
   "web_accessible_resources": [
     {
       "resources": [
+        "/assets/icon16.png",
+        "/assets/icon48.png",
+        "/assets/icon128.png",
         "index.html"
       ],
       "matches": [

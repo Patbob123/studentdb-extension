@@ -55,6 +55,7 @@ let repeatTimer = async (prevTime) => {
                             condition: { urlFilter: `||${curTabURL}/`, resourceTypes: ['main_frame', 'sub_frame'] },
                         }],
                     });
+                    sendNoti("UNTANGLED", host + " has been blocked. Go back to Learning!!!")
                     await chrome.tabs.reload(curTab.id)
                     await startCooldown(curTabURL, obj[curTabURL].id, maxTime)
                 }
