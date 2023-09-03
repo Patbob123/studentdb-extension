@@ -1,14 +1,14 @@
 ![UNTANGLE Title](/public/assets/README/Untangle.png)
 
-Introducing Untangle, THE revolutionary Google Chrome extension built and designed to boost productivity and combat procrastination for students all over the globe. Are you tired of digging the rabbit hole of endless internet distractions while studying or working? Well, Untangle is here to pull you out.
+UNTANGLE, THE revolutionary Google Chrome extension built and designed to boost productivity and combat procrastination for students all over the globe. Are you tired of digging the rabbit hole of endless internet distractions while studying or working? Well, UNTANGLE is here to pull you out.
 
-Untangle allows students to simply set specific time limits for distracting websites. This allows the student to take the steering wheel on their study sessions, instead of the tiktok-loving monkey in their brains. Say no more to mindless scrolling on social media, excessive YouTube binging, or endlessly checking emails. Untangle will be the shield to block these unhealthy habits and ensure a major boost in focus and efficiency.
+UNTANGLE allows students to simply set specific time limits for distracting websites. This allows the student to take the steering wheel on their study sessions, instead of the tiktok-loving monkey in their brains. Say no more to mindless scrolling on social media, excessive YouTube binging, or endlessly checking emails. UNTANGLE will be the shield to block these unhealthy habits and ensure a major boost in focus and efficiency.
 
-By blocking access to chosen websites after a preset amount of time, Untangle gently nudges the student back on track, ensuring that their time working are well-spent. Immediate positive impacts include: improved grades, better time management, and reduced stress levels.
+By blocking access to chosen websites after a preset amount of time, UNTANGLE gently nudges the student back on track, ensuring that their time working are well-spent. Immediate positive impacts include: improved grades, better time management, and reduced stress levels.
 
-As digital entertainment continues to rapidly evolve, the ability to untangle oneself from the deep web of internet distractions becomes a survival skill. Untangle is the crucial tool to foster discipline within the newer generations so that. 
+As digital entertainment continues to rapidly evolve, the ability to untangle oneself from the deep web of internet distractions becomes a survival skill. UNTANGLE is the crucial tool to foster discipline within the newer generations so that.
 
-Untangle is not just an extension, it is the Hello World for personal and societal change. Unlock a clearer future by locking those brain-rotting distractions. Try Untangle today and untangle your way to a more productive day.
+UNTANGLE is not just an extension, it is the Hello World for personal and societal change. Unlock a clearer future by locking those brain-rotting distractions. Try UNTANGLE today and untangle your way to a more productive day.
 (Installation Guide Found Bellow)
 
 ![The Problem?](/public/assets/README/TheProblem.png)
