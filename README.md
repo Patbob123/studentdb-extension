@@ -1,6 +1,6 @@
 ![UNTANGLE Title?](/public/assets/README/Untangle.png)
 
-## Untangle is a will set time limits on websites of your choosing to stop you from wasting your valuable time on needless distractions
+## Untangle provides the ability to set time limits on "off-task" websites, allowing you to stop wasting your valuable time on unnecessary distractions
 
 ![The Problem?](/public/assets/README/TheProblem.png)
 
