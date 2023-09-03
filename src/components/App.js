@@ -50,7 +50,6 @@ function App() {
                         hostNameArr.push({ hostname: curHost, timeSpent: timeSpentDisplay, maxTime: maxTimeDisplay, barPercent: barPercentDisplay, onCooldown: cooldown })
                     }
                 }
-                console.log(hostNameArr)
                 setHostArr(hostNameArr)
 
                 if (storage[curTabHostname]) {
@@ -65,7 +64,6 @@ function App() {
                     setBarPercent((Math.abs(storage[curTabHostname].timeSpent) / storage.settings.maxTime > 1) ? 1 : (Math.abs(storage[curTabHostname].timeSpent) / storage.settings.maxTime) * 100 + "%")
                    
                 }
-                //console.log(hostNameArr)
             }
            
             await new Promise(resolve => setTimeout(resolve, 100));
@@ -79,8 +77,6 @@ function App() {
         for(let i = 0 ; i < hostArr.length; i++){
             hostNameArr[i] = hostArr[i].hostname
         }
-        console.log(hostNameArr)
-        console.log(hostArr)
         if (isEnabled) {
             hostNameArr = hostNameArr.filter((e) => e != hostname)
         }
@@ -100,9 +96,7 @@ function App() {
     }
 
     async function changeMaxTime() {
-        console.log(hour + " " + minute + " " + second)
         let timeInSeconds = ((hour * 3600) + (minute * 60) + (second * 1))
-        console.log(timeInSeconds)
         await setSettings({ maxTime: timeInSeconds })
     }
 
