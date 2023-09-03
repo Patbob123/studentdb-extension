@@ -6,7 +6,7 @@ UNTANGLE allows students to simply set specific time limits for distracting webs
 
 By blocking access to chosen websites after a preset amount of time, UNTANGLE gently nudges the student back on track, ensuring that their time working are well-spent. Immediate positive impacts include: improved grades, better time management, and reduced stress levels.
 
-As digital entertainment continues to rapidly evolve, the ability to untangle oneself from the deep web of internet distractions becomes a survival skill. UNTANGLE is the crucial tool to foster discipline within the newer generations so that.
+As digital entertainment continues to rapidly evolve, the ability to untangle oneself from the deep web of internet distractions becomes a survival skill.
 
 UNTANGLE is not just an extension, it is the Hello World for personal and societal change. Unlock a clearer future by locking those brain-rotting distractions. Try UNTANGLE today and untangle your way to a more productive day.
 (Installation Guide Found Bellow)
