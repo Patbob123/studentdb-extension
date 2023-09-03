@@ -1,4 +1,4 @@
-![UNTANGLE Title?](/public/assets/README/Untangle.png)
+![UNTANGLE Title](/public/assets/README/Untangle.png)
 
 ## UNTANGLE allows you to set time limits on "off-task" websites, stopping wasting your valuable time on unnecessary distractions.
 (Installation Guide Found Bellow)
