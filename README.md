@@ -17,7 +17,7 @@
 ##### Step 2:
 ![STEP2?](/public/assets/README/Step2.png)
 ##### Step 3:
-![STEP3?](/public/assets/README/Step3.png)
+![STEP3?](/public/assets/README/StepThree.png)
 ##### Step 4:
 ![STEP4?](/public/assets/README/Step4.png)
 ##### Step 5:
