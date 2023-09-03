@@ -1,4 +1,4 @@
-import { incrementTime, getStorage, setStorage, startCooldown, newStorage, getCurrentTab, clearStorage } from './modules/storage.js';
+import { incrementTime, getStorage, setStorage, startCooldown, newStorage, getCurrentTab, clearStorage, sendNoti } from './modules/storage.js';
 import * as time from './modules/time.js'
 
 const defaultSettings = {
@@ -9,6 +9,7 @@ const defaultSettings = {
 
 chrome.runtime.onInstalled.addListener(e => {
     console.log('Starting')
+    sendNoti("STARTING UNTANGLE", "UNTANGLE is starting")
     let start = async () => {
         await clearStorage()
         await setStorage('settings', defaultSettings)
@@ -57,17 +58,6 @@ let repeatTimer = async (prevTime) => {
                     await chrome.tabs.reload(curTab.id)
                     await startCooldown(curTabURL, obj[curTabURL].id, maxTime)
                 }
-
-                chrome.notifications.create("timer",
-                    {
-                        iconUrl: "https://img.icons8.com/fluency/48/domain.png",
-                        title: "Time Passed",
-                        type: "basic",
-                        message: obj[curTabURL].timeSpent.toString(),
-                        priority: 2
-                    }
-                )
-                console.log('EHERRERE')
             }
 
         }

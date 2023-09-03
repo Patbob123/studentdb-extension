@@ -31,13 +31,13 @@ const setStorage = async (hostname, val) => {
 const setSettings = async (settings) => {
     let obj = await getStorage()
 
-    if(settings.maxTime) {
-        await setStorage('settings', {maxTime: settings.maxTime, trackedHosts: obj.settings.trackedHosts})
+    if (settings.maxTime) {
+        await setStorage('settings', { maxTime: settings.maxTime, trackedHosts: obj.settings.trackedHosts })
     }
-    if(settings.trackedHosts) {
-        await setStorage('settings', {trackedHosts: settings.trackedHosts, maxTime: obj.settings.maxTime})
+    if (settings.trackedHosts) {
+        await setStorage('settings', { trackedHosts: settings.trackedHosts, maxTime: obj.settings.maxTime })
     }
-    
+
 }
 
 const newStorage = async (hostname) => {
@@ -64,10 +64,22 @@ const clearStorage = async () => {
     chrome.storage.local.clear();
 }
 
-const getCurrentTab = async () =>{
+const getCurrentTab = async () => {
     let queryOptions = { active: true, currentWindow: true };
     let [tab] = await chrome.tabs.query(queryOptions);
     return tab;
 }
 
-export { incrementTime, removeStorage, getStorage, setStorage, newStorage, setSettings, startCooldown, clearStorage, getCurrentTab }
+const sendNoti = async (title, message) => {
+    chrome.notifications.create(title,
+        {
+            iconUrl: "../assets/icon16.png",
+            title: title,
+            type: "basic",
+            message: message,
+            priority: 2
+        }
+    )
+}
+
+export { incrementTime, removeStorage, getStorage, setStorage, newStorage, setSettings, startCooldown, clearStorage, getCurrentTab, sendNoti }
