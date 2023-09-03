@@ -107,8 +107,16 @@ function App() {
   })), /*#__PURE__*/React.createElement("div", {
     className: "flex flex-1 w-auto h-16 items-center justify-center"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "font-extrabold text-3xl text-transparent text-center bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-600 duration-700"
-  }, "UNTANGLE"))), isEnabled ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    className: "font-extrabold tracking-widest text-3xl text-transparent text-center flex"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#00c3b1"
+    }
+  }, "UN"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#ff6b65"
+    }
+  }, "TANGLE")))), isEnabled ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "flex flex-col w-full h-1/5 px-5 space-y-1 justify-center"
   }, /*#__PURE__*/React.createElement("div", {
     className: "h-fit w-full bg-neutral-20"
