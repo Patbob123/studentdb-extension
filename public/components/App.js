@@ -162,33 +162,33 @@ function App() {
     onClick: async () => await changeMaxTime(),
     className: "h-1/4 rounded  bg-yellow-50"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "flex font-extrabold text-base justify-center items-center"
+    className: "flex font-bold text-base justify-center items-center"
   }, "SET"))), /*#__PURE__*/React.createElement("div", {
     className: "flex w-full h-1/10 bottom-0 px-5 pb-2 justify-between"
   }, /*#__PURE__*/React.createElement("div", {
     onClick: () => toggleEnable(isEnabled),
     className: "w-1/4 rounded  bg-yellow-50"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "flex font-extrabold justify-center items-center"
+    className: "flex font-bold justify-center items-center"
   }, "DISABLE")), /*#__PURE__*/React.createElement("div", {
     onClick: () => toggleList(onMain),
-    className: "w-1/10 font-extrabold text-black text-center rounded bg-white"
+    className: "w-1/10 font-bold text-black text-center rounded bg-white"
   }, ">"))) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "flex flex-col w-full h-1/2 p-5 space-y-1 justify-center"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "h-1/4 flex justify-center items-center font-extrabold text-2xl/none text-white"
+    className: "h-1/4 flex justify-center items-center font-bold text-2xl/none text-white"
   }, hostname), /*#__PURE__*/React.createElement("div", {
-    className: "h-1/2 flex justify-center items-center font-extrabold text-xl/none text-red-500"
+    className: "h-1/2 flex justify-center items-center font-bold text-xl/none text-red-500"
   }, "NOT ENABLED")), /*#__PURE__*/React.createElement("div", {
     className: "flex w-full h-1/10 bottom-0 px-5 pb-2 justify-between"
   }, /*#__PURE__*/React.createElement("div", {
     onClick: () => toggleEnable(isEnabled),
     className: "w-1/4 rounded  bg-yellow-50"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "flex font-extrabold justify-center items-center"
+    className: "flex font-bold justify-center items-center"
   }, "ENABLE")), /*#__PURE__*/React.createElement("div", {
     onClick: () => toggleList(onMain),
-    className: "w-1/10 font-extrabold text-black text-center rounded bg-white"
+    className: "w-1/10 font-bold text-black text-center rounded bg-white"
   }, ">")))) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "w-80 h-90 bg-slate-900 py-5 pb-10 space-y-2 text-white"
   }, hostArr.map((host, i) => /*#__PURE__*/React.createElement("div", {
@@ -209,7 +209,7 @@ function App() {
     className: "flex fixed w-full h-8 bottom-0 px-5 pb-2 bg-slate-900"
   }, /*#__PURE__*/React.createElement("div", {
     onClick: () => toggleList(onMain),
-    className: "w-1/10 font-extrabold text-black text-center rounded bg-white"
+    className: "w-1/10 font-bold text-black text-center rounded bg-white"
   }, "<"))));
 }
 ReactDOM.createRoot(document.querySelector('#root')).render( /*#__PURE__*/React.createElement(App, null));

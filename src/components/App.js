@@ -148,7 +148,7 @@ function App() {
                                     <input type="number" min="0" max="59" onChange={(e) => setSecond(e.target.value)} placeholder="SECOND" className="h-full w-1/4 rounded p-1 placeholder-black focus:outline-none focus:border-red-500  bg-slate-500" />
                                 </div>
                                 <div onClick={async () => await changeMaxTime()} className="h-1/4 rounded  bg-yellow-50">
-                                    <div className="flex font-extrabold text-base justify-center items-center">
+                                    <div className="flex font-bold text-base justify-center items-center">
                                         SET
                                     </div>
                                 </div>
@@ -156,30 +156,30 @@ function App() {
                             </div>
                             <div className="flex w-full h-1/10 bottom-0 px-5 pb-2 justify-between">
                                 <div onClick={() => toggleEnable(isEnabled)} className="w-1/4 rounded  bg-yellow-50">
-                                    <div className="flex font-extrabold justify-center items-center">
+                                    <div className="flex font-bold justify-center items-center">
                                         DISABLE
                                     </div>
                                 </div>
-                                <div onClick={() => toggleList(onMain)} className="w-1/10 font-extrabold text-black text-center rounded bg-white">{">"}</div>
+                                <div onClick={() => toggleList(onMain)} className="w-1/10 font-bold text-black text-center rounded bg-white">{">"}</div>
                             </div>
                         </>
                     ) : (
                         <>
                             <div className="flex flex-col w-full h-1/2 p-5 space-y-1 justify-center">
-                                <div className="h-1/4 flex justify-center items-center font-extrabold text-2xl/none text-white">
+                                <div className="h-1/4 flex justify-center items-center font-bold text-2xl/none text-white">
                                     {hostname}
                                 </div>
-                                <div className="h-1/2 flex justify-center items-center font-extrabold text-xl/none text-red-500">
+                                <div className="h-1/2 flex justify-center items-center font-bold text-xl/none text-red-500">
                                     NOT ENABLED
                                 </div>
                             </div>
                             <div className="flex w-full h-1/10 bottom-0 px-5 pb-2 justify-between">
                                 <div onClick={() => toggleEnable(isEnabled)} className="w-1/4 rounded  bg-yellow-50">
-                                    <div className="flex font-extrabold justify-center items-center">
+                                    <div className="flex font-bold justify-center items-center">
                                         ENABLE
                                     </div>
                                 </div>
-                                <div onClick={() => toggleList(onMain)} className="w-1/10 font-extrabold text-black text-center rounded bg-white">{">"}</div>
+                                <div onClick={() => toggleList(onMain)} className="w-1/10 font-bold text-black text-center rounded bg-white">{">"}</div>
                             </div>
                         </>
                     )}
@@ -207,7 +207,7 @@ function App() {
 
                     </div>
                     <div className="flex fixed w-full h-8 bottom-0 px-5 pb-2 bg-slate-900">
-                        <div onClick={() => toggleList(onMain)} className="w-1/10 font-extrabold text-black text-center rounded bg-white">{"<"}</div>
+                        <div onClick={() => toggleList(onMain)} className="w-1/10 font-bold text-black text-center rounded bg-white">{"<"}</div>
                     </div>
                 </>
             )}

@@ -676,6 +676,10 @@ video {
   height: 0.5rem;
 }
 
+.h-64 {
+  height: 16rem;
+}
+
 .h-72 {
   height: 18rem;
 }
@@ -691,22 +695,6 @@ video {
 
 .h-full {
   height: 100%;
-}
-
-.h-screen {
-  height: 100vh;
-}
-
-.h-24 {
-  height: 6rem;
-}
-
-.h-32 {
-  height: 8rem;
-}
-
-.h-64 {
-  height: 16rem;
 }
 
 .w-1\/10 {
@@ -731,10 +719,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-screen {
-  width: 100vw;
 }
 
 .flex-1 {
@@ -848,12 +832,12 @@ video {
   padding: 0.25rem;
 }
 
-.p-5 {
-  padding: 1.25rem;
-}
-
 .p-10 {
   padding: 2.5rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-5 {
@@ -871,21 +855,12 @@ video {
   padding-bottom: 1.25rem;
 }
 
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-
 .pb-10 {
   padding-bottom: 2.5rem;
 }
 
 .pb-2 {
   padding-bottom: 0.5rem;
-}
-
-.pb-20 {
-  padding-bottom: 5rem;
 }
 
 .text-center {
@@ -902,6 +877,11 @@ video {
   line-height: 2.25rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -914,21 +894,6 @@ video {
 
 .text-xs\/none {
   font-size: 0.75rem;
-  line-height: 1;
-}
-
-.text-10xl {
-  font-size: 9rem;
-  line-height: 1;
-}
-
-.text-7xl {
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
-.text-5xl {
-  font-size: 3rem;
   line-height: 1;
 }
 
@@ -1014,6 +979,16 @@ video {
   transition-duration: 150ms;
 }
 
+@font-face {
+  font-family: NormalFont;
+
+  src: url(./assets/BlackLives.otf);
+}
+
+* {
+  font-family: NormalFont;
+}
+
 body {
   scroll-snap-type: y mandatory;
   -ms-overflow-style: none;
@@ -1068,3 +1043,4 @@ input[type=number] {
     background-color: rgb(82 82 82 / var(--tw-bg-opacity));
   }
 }
+
