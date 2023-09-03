@@ -116,8 +116,8 @@ function App() {
                             <img src="./assets/icon128.png" alt="Icon" className=""></img>
                         </div>
                         <div className="flex flex-1 w-auto h-16 items-center justify-center">
-                            <div className="font-extrabold text-3xl text-transparent text-center bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-600 duration-700">
-                                UNTANGLE
+                            <div className="font-extrabold tracking-widest text-3xl text-transparent text-center flex">
+                                <div style={{color:"#00c3b1"}}>UN</div><div style={{color:"#ff6b65"}}>TANGLE</div>
                             </div>
 
                         </div>

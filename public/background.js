@@ -51,7 +51,7 @@ let repeatTimer = async (prevTime) => {
                     await chrome.declarativeNetRequest.updateDynamicRules({
                         addRules: [{
                             id: obj[curTabURL].id,
-                            action: { type: 'redirect', redirect: { extensionPath: '/index.html' } },
+                            action: { type: 'redirect', redirect: { extensionPath: '/blocked.html' } },
                             condition: { urlFilter: `||${curTabURL}/`, resourceTypes: ['main_frame', 'sub_frame'] },
                         }],
                     });
