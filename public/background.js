@@ -17,7 +17,7 @@ chrome.runtime.onInstalled.addListener(e => {
     start();
 })
 
-chrome.declarativeNetRequest.updateDynamicRules({
+chrome.declarativeNetRequest.updateDynamicRules({ // Testing purposes, to remove website blocks on first load from previous runs
     removeRuleIds: [0, 1, 2, 3, 4, 5, 6]
 });
 
@@ -32,7 +32,8 @@ let repeatTimer = async (prevTime) => {
         console.log(obj)
 
         for (let host in obj) {
-
+            if(!obj.settings.trackedHosts.includes(host)) continue;
+            
             if (obj[host].timeSpent < 0) curTabURL = host
             if (obj[host].timeSpent >= 0) {
                 chrome.declarativeNetRequest.updateDynamicRules({
