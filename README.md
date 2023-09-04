@@ -1,6 +1,6 @@
 ![UNTANGLE Title](/public/assets/README/Untangle.png)
 
-[Devpost Submission](https://devpost.com/software/untangled-jszef2)
+[Devpost Submission](https://devpost.com/software/untangled-jszef2) <br /> 
 UNTANGLE, THE revolutionary Google Chrome extension built and designed to boost productivity and combat procrastination for students all over the globe. Are you tired of digging the rabbit hole of endless internet distractions while studying or working? Well, UNTANGLE is here to pull you out.
 
 UNTANGLE allows students to simply set specific time limits for distracting websites. This allows the student to take the steering wheel on their study sessions, instead of the tiktok-loving monkey in their brains. Say no more to mindless scrolling on social media, excessive YouTube binging, or endlessly checking emails. UNTANGLE will be the shield to block these unhealthy habits and ensure a major boost in focus and efficiency.
